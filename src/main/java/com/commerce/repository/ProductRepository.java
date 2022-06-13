@@ -2,14 +2,16 @@ package com.commerce.repository;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.commerce.model.Product;
 
-public interface ProductRepository {
+@Repository
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
-	List<Product> getAllProducts();
+	List<Product> getProductsByCategory(String category);
 
-	List<Product> getProductsByCategory();
-
-	List<Product> getProductsByName();
+	List<Product> getProductsByName(String productName);
 
 }

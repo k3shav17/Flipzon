@@ -9,13 +9,9 @@ import javax.persistence.Id;
 import org.springframework.lang.NonNull;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
-@Getter
-@Setter
 public class Product {
 
 	@Id
@@ -27,4 +23,41 @@ public class Product {
 	private double price;
 	private String pictureUrl;
 	private String category;
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 }
