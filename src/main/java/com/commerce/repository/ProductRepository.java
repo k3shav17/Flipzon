@@ -11,7 +11,8 @@ import com.commerce.model.Product;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-	List<Product> getProductsByCategory(String category);
+	@Query("FROM Product WHERE category = :categeory")
+	List<Product> findByCategory(String categeory);
 
 	@Query("FROM Product WHERE name = :productName")
 	List<Product> findProductsByName(String productName);

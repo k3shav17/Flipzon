@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ProductNotFoundException extends RuntimeException {
+public class NoProductFoundWithName extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	@ExceptionHandler(value = ProductNotFoundException.class)
-	public ResponseEntity<Object> handlingProductNotFoundException() {
-		return new ResponseEntity<>("Product not found with ID mentioned", new HttpHeaders(), HttpStatus.NOT_FOUND);
+	@ExceptionHandler(value = NoProductFoundWithName.class)
+	public ResponseEntity<Object> noProductFoundWithNameMentioned() {
+		return new ResponseEntity<>("Product not found with name mentioned", new HttpHeaders(), HttpStatus.NOT_FOUND);
 	}
 }
