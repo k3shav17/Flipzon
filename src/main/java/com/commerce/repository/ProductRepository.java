@@ -14,6 +14,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 	List<Product> getProductsByCategory(String category);
 
 	@Query("FROM Product WHERE name = :productName")
-	List<Product> getProductsByName(String productName);
-
+	List<Product> findProductsByName(String productName);
 }
