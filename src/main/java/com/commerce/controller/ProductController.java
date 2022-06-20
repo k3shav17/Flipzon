@@ -32,6 +32,7 @@ public class ProductController {
 	private String productAddition(@RequestBody Product product) {
 
 		List<Product> isProductWithIdExists = productRepository.findProductsByName(product.getName());
+
 		if (!isProductWithIdExists.isEmpty()) {
 			return String.format("Product %s already exists", product.getName());
 		} else {
@@ -42,7 +43,9 @@ public class ProductController {
 
 	@GetMapping("/getProduct/{name}")
 	private ResponseEntity<Object> getProduct(@PathVariable("name") String name) {
+
 		List<Product> productList = productRepository.findProductsByName(name);
+
 		if (productList.isEmpty()) {
 			throw new NoProductFoundWithName();
 		}
@@ -56,7 +59,9 @@ public class ProductController {
 
 	@DeleteMapping("/delete/{id}")
 	private void removeProduct(@PathVariable("id") Long productId) {
+
 		Optional<Product> isProductWithIdExists = productRepository.findById(productId);
+
 		if (isProductWithIdExists.isEmpty()) {
 			throw new ProductNotFoundException();
 		}
@@ -67,6 +72,7 @@ public class ProductController {
 	private ResponseEntity<Object> getProductsByCategory(@PathVariable("type") String type) {
 
 		List<Product> isCategory = productRepository.findByCategory(type);
+
 		if (isCategory.isEmpty()) {
 			throw new CategoryNotFoundException();
 		}
