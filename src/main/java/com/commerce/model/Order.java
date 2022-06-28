@@ -19,7 +19,7 @@ public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long orderId;
+	private Long orderId;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dateCreated;
